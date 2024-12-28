@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repository Index</title>
+    <style>
+        :root {
+            --amoled-bg: #000000;
+            --amoled-text: #ffffff;
+            --amoled-accent: #00fff2;
+            --amoled-hover: #005c59;
+        }
+
+        body {
+            background-color: var(--amoled-bg);
+            color: var(--amoled-text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--amoled-accent);
+            margin-bottom: 2rem;
+        }
+
+        .folder-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .folder-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid var(--amoled-accent);
+        }
+
+        .folder-card:hover {
+            transform: translateY(-5px);
+            background: var(--amoled-hover);
+            box-shadow: 0 0 15px var(--amoled-accent);
+        }
+
+        .folder-name {
+            color: var(--amoled-accent);
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .folder-icon {
+            margin-right: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .folder-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Repository Index</h1>
+        <div id="folder-list" class="folder-grid">
+            <!-- Folders will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        async function scanRepository() {
+            try {
+                const response = await fetch('https://api.github.com/repos/honeysaini653/ai/contents/');
+                const data = await response.json();
+                
+                const folderList = document.getElementById('folder-list');
+                
+                data.forEach(item => {
+                    if (item.type === 'dir') {
+                        const folderCard = document.createElement('div');
+                        folderCard.className = 'folder-card';
+                        folderCard.innerHTML = `
+                            <h3 class="folder-name">
+                                <span class="folder-icon">📁</span>
+                                ${item.name}
+                            </h3>
+                        `;
+                        
+                        folderCard.addEventListener('click', () => {
+                            window.location.href = `https://honeysaini653.github.io/ai/${item.name}/index.html`;
+                        });
+                        
+                        folderList.appendChild(folderCard);
+                    }
+                });
+            } catch (error) {
+                console.error('Error fetching repository contents:', error);
+            }
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', scanRepository);
+    </script>
+</body>
+</html>
