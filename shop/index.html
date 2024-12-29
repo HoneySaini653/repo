@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Babaga Gurditta Ji Auto Parts</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="main-nav">
+                <div class="logo">
+                    <h1>Baba Gurditta Ji</h1>
+                    <span>Auto & Tractor Parts</span>
+                </div>
+                <div class="nav-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search parts...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="cart" role="button" data-bs-toggle="modal" data-bs-target="#cartModal">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Vehicle Selection -->
+    <main>
+        <div class="container">
+            <!-- Initial Vehicle Type Selection -->
+            <div id="vehicleTypeSelection" class="selection-grid">
+                <div class="selection-card" data-type="tractors">
+                    <i class="fas fa-tractor"></i>
+                    <h2>Tractors</h2>
+                </div>
+                <div class="selection-card" data-type="bikes">
+                    <i class="fas fa-motorcycle"></i>
+                    <h2>Bikes</h2>
+                </div>
+                <div class="selection-card" data-type="cars">
+                    <i class="fas fa-car"></i>
+                    <h2>Cars</h2>
+                </div>
+                <div class="selection-card" data-type="others">
+                    <i class="fas fa-tools"></i>
+                    <h2>Others</h2>
+                </div>
+            </div>
+
+            <!-- Brand Selection (Initially Hidden) -->
+            <div id="brandSelection" class="selection-grid hidden">
+                <div class="back-button">
+                    <i class="fas fa-arrow-left"></i> Back
+                </div>
+                <!-- Brands will be loaded here -->
+            </div>
+
+            <!-- Parts Categories (Initially Hidden) -->
+            <div id="partsCategories" class="parts-grid hidden">
+                <div class="back-button">
+                    <i class="fas fa-arrow-left"></i> Back
+                </div>
+                <!-- Parts categories will be loaded here -->
+            </div>
+
+            <!-- Products List (Initially Hidden) -->
+            <div id="productsList" class="products-grid hidden">
+                <div class="back-button">
+                    <i class="fas fa-arrow-left"></i> Back
+                </div>
+                <!-- Products will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Product Modal -->
+    <div class="modal fade" id="productModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Product details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Shopping Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItems">
+                        <!-- Cart items will be loaded here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="cart-total">Total: ₹<span id="cartTotal">0</span></div>
+                    <button class="btn btn-primary checkout-btn" onclick="store.checkout()" id="checkoutButton" disabled>
+                        Checkout via WhatsApp
+                        <i class="fab fa-whatsapp"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal fade" id="checkoutModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Your order total is ₹<span id="checkoutTotal">0</span></p>
+                    <p>After clicking confirm:</p>
+                    <ol>
+                        <li>You'll be redirected to WhatsApp</li>
+                        <li>Shop owner will send you a payment QR code</li>
+                        <li>Complete the payment to confirm your order</li>
+                    </ol>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="confirmCheckout">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="owner-details">
+                <h3>Contact Details</h3>
+                <p><strong>Owner:</strong> Jaswant Singh</p>
+                <p><strong>Mobile:</strong> <a href="tel:+917888323326">+91 7888323326</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
