@@ -359,7 +359,7 @@ class PartsStore {
 
     checkout() {
         // Get cart items and total
-        const items = this.cart.map(item => `${item.name} - ₹${item.price}`).join('\n');
+        const items = this.cart.map(item => `${item.name} - ₹${item.price} (${this.selectedType} - ${this.selectedBrand})`).join('\n');
         const total = this.cartTotal;
 
         // Create WhatsApp message with payment request
