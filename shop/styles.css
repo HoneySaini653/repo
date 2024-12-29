@@ -150,6 +150,39 @@ text-align:center;
     display: none;
 }
 
+
+div#tractor {
+    background-image: url(https://i.ibb.co/ZMCgpVZ/hand-drawn-tractor-silhouette-illustration-23-2151205342.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+}
+div#bike {
+    background-image: url(https://i.ibb.co/VB5Sm3r/360-F-376701136-KNP9p-ERny-P5-Z2ac-AIuhn-QQ0-Hpq-Uu-WQyh.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+}
+div#car {
+    background-image: url(https://i.ibb.co/c8dd4Lp/Crawlerbf4fd140d4d811ee90b2f2b73e4a46a1-20240227002628326499.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+}
+div#other {
+    background-image: url(https://i.ibb.co/xj0wQ3T/images.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+}
+
+
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .main-nav {
