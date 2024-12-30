@@ -86,7 +86,7 @@
 
         async function scanRepository() {
             try {
-                const response = await fetch('https://api.github.com/repos/honeysaini653/playcode/My_Workcontents/');
+                const response = await fetch('https://api.github.com/repos/honeysaini653/playcode/My_Work/contents/');
                 const data = await response.json();
                 
                 const folderList = document.getElementById('folder-list');
